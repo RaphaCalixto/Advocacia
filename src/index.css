@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --wine-primary: #491A36;
+    --gold-accent: #AD9273;
+    --taupe-stone: #C1B7AF;
+    --alabaster-light: #E9E8E6;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #15040f;
+    color: #E9E8E6;
+  }
+
+  body {
+    background-color: #15040f;
+    color: #E9E8E6;
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1f0817;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #581f42;
+    border-radius: 4px;
+    border: 2px solid #1f0817;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #AD9273;
+  }
+}
+
+@layer utilities {
+  /* Geometrias Diferenciadas de Cards */
+  
+  /* 1. Card Chanfrado / Lapidado (Octogonal elegante) */
+  .clip-chamfer {
+    clip-path: polygon(
+      16px 0%, 
+      calc(100% - 16px) 0%, 
+      100% 16px, 
+      100% calc(100% - 16px), 
+      calc(100% - 16px) 100%, 
+      16px 100%, 
+      0% calc(100% - 16px), 
+      0% 16px
+    );
+  }
+
+  .clip-chamfer-lg {
+    clip-path: polygon(
+      28px 0%, 
+      calc(100% - 28px) 0%, 
+      100% 28px, 
+      100% calc(100% - 28px), 
+      calc(100% - 28px) 100%, 
+      28px 100%, 
+      0% calc(100% - 28px), 
+      0% 28px
+    );
+  }
+
+  /* 2. Card em Arco Romano / Pórtico Clássico */
+  .card-arch {
+    border-top-left-radius: 140px;
+    border-top-right-radius: 140px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  /* 3. Card com Corte Diagonal Assimétrico */
+  .clip-diagonal {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%);
+  }
+
+  /* Efeitos de Superfície & Iluminação Nobre */
+  .glass-wine {
+    background: linear-gradient(135deg, rgba(73, 26, 54, 0.45) 0%, rgba(31, 8, 23, 0.75) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(173, 146, 115, 0.18);
+  }
+
+  .glass-wine-hover {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-wine-hover:hover {
+    background: linear-gradient(135deg, rgba(88, 31, 66, 0.6) 0%, rgba(39, 12, 30, 0.9) 100%);
+    border-color: rgba(173, 146, 115, 0.5);
+    box-shadow: 0 15px 40px -10px rgba(173, 146, 115, 0.2), 0 0 30px 0 rgba(73, 26, 54, 0.5);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #f6f3ed 0%, #AD9273 50%, #8c7254 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gold-bright {
+    background: linear-gradient(135deg, #ffffff 0%, #e3d9cb 40%, #AD9273 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .border-gold-subtle {
+    border-color: rgba(173, 146, 115, 0.25);
+  }
+
+  .bg-noise {
+    background-image: radial-gradient(rgba(173, 146, 115, 0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
